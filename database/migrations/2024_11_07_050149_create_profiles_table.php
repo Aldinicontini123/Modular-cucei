@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('degree_id');
             $table->date('end_studies_date')->nullable();
             $table->string('actual_job')->nullable();
             $table->string('actual_company')->nullable();
             $table->string('time_current_company')->nullable();
             $table->string('first_job')->nullable();
-            $table->text('description_first_job');
+            $table->text('description_first_job')->nullable();
             $table->json('hardskills')->nullable();
             $table->json('technologies')->nullable();
             $table->json('certifications')->nullable();
