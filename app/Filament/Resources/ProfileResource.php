@@ -19,7 +19,7 @@ class ProfileResource extends Resource
 {
     protected static ?string $model = Profile::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     public static function form(Form $form): Form
     {
@@ -115,5 +115,15 @@ class ProfileResource extends Resource
             'create' => Pages\CreateProfile::route('/create'),
             'edit' => Pages\EditProfile::route('/{record}/edit'),
         ];
+
+    }
+    public static function getModelLabel(): string
+    {
+        return __('Perfil');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Perfiles');
     }
 }
