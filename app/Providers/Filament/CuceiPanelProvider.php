@@ -28,7 +28,19 @@ class CuceiPanelProvider extends PanelProvider
             ->path('cucei')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => [
+                    '50' => '#eff6ff',
+                    '100' => '#daeaff',
+                    '200' => '#bddaff',
+                    '300' => '#90c4ff',
+                    '400' => '#5ca3fe',
+                    '500' => '#367ffb',
+                    '600' => '#205ef0',
+                    '700' => '#1848d8', // Color principal
+                    '800' => '#1b3cb2',
+                    '900' => '#1b388d',
+                    '950' => '#162355',
+                ]
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -53,6 +65,14 @@ class CuceiPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->brandLogo(asset('img/admin/CUCEI.svg.png'))
+            ->brandLogoHeight($this->getBrandLogoHeight())
+            ->favicon(asset('img/admin/CUCEI.svg.png'));;
+    }
+
+    protected function getBrandLogoHeight()
+    {
+        return request()->is('cucei/login') ? '5rem' : '3rem';
     }
 }
