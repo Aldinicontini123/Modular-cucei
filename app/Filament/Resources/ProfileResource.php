@@ -27,52 +27,52 @@ class ProfileResource extends Resource
             ->schema([
                 Select::make('user_id')
                     ->relationship('user', 'name')
-                    ->label('User')
+                    ->label('Usuario')
                     ->required(),
 
                 Select::make('degree_id')
                     ->relationship('degree', 'name')
-                    ->label('Degree')
+                    ->label('Carrera')
                     ->required(),
 
                 DatePicker::make('end_studies_date')
-                    ->label('End Studies Date'),
+                    ->label('Fecha de finalizacion de estudios'),
 
                 TextInput::make('actual_job')
-                    ->label('Actual Job'),
+                    ->label('Trabajo actual'),
 
                 TextInput::make('actual_company')
-                    ->label('Actual Company'),
+                    ->label('Compañia actual'),
 
                 TextInput::make('time_current_company')
-                    ->label('Time at Current Company'),
+                    ->label('Tiempo en la empresa actual'),
 
                 TextInput::make('first_job')
-                    ->label('First Job'),
+                    ->label('Primer trabajo'),
 
                 Textarea::make('description_first_job')
-                    ->label('Description of First Job'),
+                    ->label('Descripcion del primer trabajo'),
 
                 Textarea::make('hardskills')
-                    ->label('Hard Skills'),
+                    ->label('Habilidades duras'),
 
                 Textarea::make('technologies')
-                    ->label('Technologies'),
+                    ->label('Tecnologias'),
 
                 Textarea::make('certifications')
-                    ->label('Certifications'),
+                    ->label('Certificaciones'),
 
                 Textarea::make('softskills')
-                    ->label('Soft Skills'),
+                    ->label('Habilidades blandas'),
 
                 Textarea::make('proyects_practicies')
-                    ->label('Projects and Practices'),
+                    ->label('Projectos y Practicas'),
 
                 Textarea::make('extras_cources')
-                    ->label('Extra Courses'),
+                    ->label('Cursos extras'),
 
                 TextInput::make('council')
-                    ->label('Council')
+                    ->label('Consejo')
                     ->required(),
             ]);
     }
