@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
             $table->foreignId('degree_id');
             $table->date('end_studies_date')->nullable();
             $table->string('actual_job')->nullable();
