@@ -27,6 +27,7 @@ class CuceiPanelProvider extends PanelProvider
             ->id('cucei')
             ->path('cucei')
             ->login()
+            ->profile()
             ->colors([
                 'primary' => [
                     '50' => '#eff6ff',
