@@ -1,5 +1,7 @@
 {
     "Name": "Nombre",
-    "Abbreviation name": "Abreviación"
+    "Abbreviation name": "Abreviación",
+    "Degree": "Carrera",
+    "Degrees": "Carreras"
 
 }

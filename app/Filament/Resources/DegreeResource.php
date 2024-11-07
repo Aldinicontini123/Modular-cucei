@@ -6,6 +6,7 @@ use App\Filament\Resources\DegreeResource\Pages;
 use App\Filament\Resources\DegreeResource\RelationManagers;
 use App\Models\Degree;
 use Filament\Forms;
+use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,9 +26,16 @@ class DegreeResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->label(__('Name')),
-                TextInput::make('abbreviation_name'),
+                Grid::make(12)
+                    ->schema([
+                        TextInput::make('name')
+                            ->label(__('Name'))
+                            ->columnSpan(6),
+                        TextInput::make('abbreviation_name')
+                            ->label(__('Abbreviation name'))
+                            ->columnSpan(6),
+                    ]),
+
             ]);
     }
 
@@ -35,8 +43,10 @@ class DegreeResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('abbreviation_name'),
+                TextColumn::make('name')
+                    ->label(__('Name')),
+                TextColumn::make('abbreviation_name')
+                    ->label(__('Abbreviation name')),
             ])
             ->filters([
                 //
@@ -66,4 +76,15 @@ class DegreeResource extends Resource
             'edit' => Pages\EditDegree::route('/{record}/edit'),
         ];
     }
+
+    public static function getModelLabel(): string
+    {
+        return __('Degree');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Degrees');
+    }
+
 }
